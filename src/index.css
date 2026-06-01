@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   LAYER 1: @property registration
+   Makes CSS custom properties animatable as <color> types.
+   Without this, variables snap instantly between values.
+   ═══════════════════════════════════════════════════════ */
+@property --color-brand-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f8fafc;
+}
+@property --color-brand-panel {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --color-brand-card {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f1f5f9;
+}
+@property --color-brand-card-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e2e8f0;
+}
+@property --color-brand-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.08);
+}
+@property --color-brand-border-hover {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(0,0,0,0.18);
+}
+@property --color-brand-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0f172a;
+}
+@property --color-brand-muted {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #475569;
+}
+@property --color-brand-purple {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000000;
+}
+@property --color-brand-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #7c3aed;
+}
+@property --color-brand-accent-soft {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ede9fe;
+}
+@property --color-brand-accent-glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(124, 58, 237, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAYER 2: Smooth transition on :root
+   Because properties are registered as <color>, the browser
+   can now interpolate between light/dark values smoothly.
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --color-brand-bg: #f8fafc;
+  --color-brand-panel: #ffffff;
+  --color-brand-card: #f1f5f9;
+  --color-brand-card-hover: #e2e8f0;
+  --color-brand-border: rgba(0,0,0,0.08);
+  --color-brand-border-hover: rgba(0,0,0,0.18);
+  --color-brand-text: #0f172a;
+  --color-brand-muted: #475569;
+  --color-brand-purple: #000000;
+  --color-brand-accent: #7c3aed;
+  --color-brand-accent-soft: #ede9fe;
+  --color-brand-accent-glow: rgba(124, 58, 237, 0.25);
+
+  transition:
+    --color-brand-bg 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-panel 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-card 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-card-hover 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-border 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-border-hover 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-text 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-muted 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-purple 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-accent 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-accent-soft 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    --color-brand-accent-glow 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --color-brand-bg: #050505;
+  --color-brand-panel: #0e0e0e;
+  --color-brand-card: #141414;
+  --color-brand-card-hover: #1c1c1c;
+  --color-brand-border: rgba(255,255,255,0.06);
+  --color-brand-border-hover: rgba(255,255,255,0.12);
+  --color-brand-text: #f0f0f0;
+  --color-brand-muted: #777777;
+  --color-brand-purple: #ffffff;
+  --color-brand-accent: #a78bfa;
+  --color-brand-accent-soft: rgba(167, 139, 250, 0.1);
+  --color-brand-accent-glow: rgba(167, 139, 250, 0.2);
+}
+
+@theme {
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-panel: var(--color-brand-panel);
+  --color-brand-card: var(--color-brand-card);
+  --color-brand-card-hover: var(--color-brand-card-hover);
+  --color-brand-border: var(--color-brand-border);
+  --color-brand-border-hover: var(--color-brand-border-hover);
+  --color-brand-text: var(--color-brand-text);
+  --color-brand-muted: var(--color-brand-muted);
+  --color-brand-purple: var(--color-brand-purple);
+  --color-brand-accent: var(--color-brand-accent);
+  --color-brand-accent-soft: var(--color-brand-accent-soft);
+  --color-brand-accent-glow: var(--color-brand-accent-glow);
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-serif: "Playfair Display", serif;
+}
+
+@utility underline-wavy-red {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #ef4444;
+  text-underline-offset: 8px;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@utility animate-shine {
+  animation: shine 4s linear infinite;
+}
+
+@utility text-shiny {
+  background: linear-gradient(
+    110deg,
+    var(--color-brand-muted) 10%,
+    var(--color-brand-text) 30%,
+    var(--color-brand-text) 70%,
+    var(--color-brand-muted) 90%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Accent gradient text utility */
+@utility text-accent-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-accent) 0%,
+    #c084fc 50%,
+    var(--color-brand-accent) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Animated gradient border */
+@keyframes gradient-border-spin {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+/* Floating animation for hero */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Slow drift for background orbs */
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-10px, 20px) scale(0.95); }
+  75% { transform: translate(-30px, -10px) scale(1.02); }
+}
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-25px, 15px) scale(0.97); }
+  50% { transform: translate(15px, -25px) scale(1.04); }
+  75% { transform: translate(20px, 10px) scale(0.98); }
+}
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, 20px) scale(1.03); }
+  66% { transform: translate(-20px, -15px) scale(0.96); }
+}
+
+@utility animate-drift-1 {
+  animation: drift-1 20s ease-in-out infinite;
+}
+@utility animate-drift-2 {
+  animation: drift-2 25s ease-in-out infinite;
+}
+@utility animate-drift-3 {
+  animation: drift-3 18s ease-in-out infinite;
+}
+
+/* Cursor blink for terminal */
+@keyframes cursor-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@utility animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Accent gradient button */
+@utility btn-accent-gradient {
+  background: linear-gradient(135deg, var(--color-brand-accent), #c084fc, var(--color-brand-accent));
+  background-size: 200% 200%;
+  animation: shine 3s ease-in-out infinite;
+}
+
+/* Subtle shimmer line */
+@keyframes shimmer-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BACKGROUND EFFECTS (Mesh, Grid, Dust)
+   ═══════════════════════════════════════════════════════ */
+
+/* 1. Fluid Mesh Gradient */
+@keyframes mesh-drift {
+  0% { transform: rotate(0deg) scale(1); }
+  33% { transform: rotate(120deg) scale(1.1); }
+  66% { transform: rotate(240deg) scale(0.9); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@utility animate-mesh-1 { animation: mesh-drift 25s infinite linear; }
+@utility animate-mesh-2 { animation: mesh-drift 30s infinite linear reverse; }
+@utility animate-mesh-3 { animation: mesh-drift 35s infinite ease-in-out; }
+
+/* 2. Perspective Grid */
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 40px; }
+}
+
+.perspective-grid-container {
+  perspective: 1000px;
+  position: absolute;
+  inset: -50% -50% 0 -50%; /* Oversize to prevent clipping when rotated */
+}
+
+.perspective-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--color-brand-accent) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-brand-accent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: rotateX(60deg) translateY(-100px);
+  transform-origin: top center;
+  animation: grid-move 3s linear infinite;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%, transparent 100%);
+  opacity: 0.15;
+}
+
+.dark .perspective-grid {
+  opacity: 0.1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LAYER 3 & 4: View Transition — soft dissolve + blur
+   ═══════════════════════════════════════════════════════ */
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+::view-transition-old(root) {
+  animation: vt-fade-out 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 2;
+  mix-blend-mode: normal;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-inter);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* Selection color */
+  ::selection {
+    background: var(--color-brand-accent);
+    color: white;
+  }
+}
