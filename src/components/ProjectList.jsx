@@ -10,7 +10,7 @@ const projects = [
     desc: "A real-time communication platform enabling instant messaging, voice calls, and collaborative workspaces for seamless team interaction.",
     stack: "React, Node.js, Express.js, MongoDB Atlas, WebRTC, Socket.IO",
     link: "https://synchronous-communication-hub-front.vercel.app/",
-    source: "https://github.com/jaishsayeed"
+    source: "https://github.com/Jaish009/Synchronous-Communication-Hub"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const projects = [
     desc: "A comprehensive practice management solution for dental clinics, featuring appointment scheduling, patient records, and billing integrations.",
     stack: "Next.js, React, Tailwind CSS, Vercel, AI Voice API",
     link: "https://dent-assist-ai-woad.vercel.app/",
-    source: "https://github.com/jaishsayeed"
+    source: "https://github.com/Jaish009/DentAssist-AI"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const projects = [
     desc: "An AI-powered agricultural assistant that helps farmers optimize crop yields by providing insights on weather, soil, and predictive analytics.",
     stack: "Next.js 15, React 19, FastAPI, PostgreSQL, Prisma, Scikit-Learn, Twilio, Vercel",
     link: "https://fasal-ai-six.vercel.app/",
-    source: "https://github.com/jaishsayeed"
+    source: "https://github.com/Jaish009/FasalAi"
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const projects = [
     desc: "A generative AI tool that creates customized brand identities, logos, and marketing copy for startups and small businesses instantly.",
     stack: "React 19, TypeScript, Express, Prisma, PostgreSQL, Cloudinary, Stripe",
     link: "https://brand-forge-ai-tawny.vercel.app/",
-    source: "https://github.com/jaishsayeed"
+    source: "https://github.com/Jaish009/BrandForgeAI"
   },
 ];
 
