@@ -4,19 +4,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <div id="home" className="w-full flex flex-col items-center text-center justify-center min-h-[90vh] py-20 mt-4 relative z-10">
-      {/* Availability badge */}
-      <motion.div
-        className="mb-8 px-4 py-1.5 rounded-full border border-brand-accent/30 bg-brand-accent-soft backdrop-blur-md text-xs font-medium text-brand-accent flex items-center gap-2 shadow-sm"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <span className="relative flex h-2.5 w-2.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-50"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-accent"></span>
-        </span>
-        Available for new opportunities
-      </motion.div>
+
       
       <motion.h1
         className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-6 text-brand-muted/60"
